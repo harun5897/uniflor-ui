@@ -1,9 +1,56 @@
 @import url("https://fonts.cdnfonts.com/css/kumbh-sans");
 @import url("https://fonts.cdnfonts.com/css/lato");
-@import "./bg-color.css";
-@import "./color.css";
 @import "tailwindcss";
 
-body {
-  font-family: "Kumbh Sans", sans-serif;
+@theme {
+  --font-lato: "Lato", sans-serif;
+  --font-kumbh-sans: "Kumbh Sans", sans-serif;
+
+  --color-primary-lighter: #f0faff;
+  --color-primary-light: #b9ecfe;
+  --color-primary-main: #00a2db;
+  --color-primary-dark: #066386;
+  --color-primary-darker: #07344a;
+
+  --color-secondary-lighter: #fff9ec;
+  --color-secondary-light: #ffdfa6;
+  --color-secondary-main: #f96d01;
+  --color-secondary-dark: #a13f0b;
+  --color-secondary-darker: #461804;
+
+  --color-info-lighter: #cafdf5;
+  --color-info-light: #61f3f3;
+  --color-info-main: #00b8d9;
+  --color-info-dark: #006c9c;
+  --color-info-darker: #003768;
+
+  --color-success-lighter: #d3fcd2;
+  --color-success-light: #77ed8b;
+  --color-success-main: #22c55e;
+  --color-success-dark: #118d57;
+  --color-success-darker: #065e49;
+
+  --color-warning-lighter: #fff5cc;
+  --color-warning-light: #ffd666;
+  --color-warning-main: #ffab00;
+  --color-warning-dark: #b76e00;
+  --color-warning-darker: #7a4100;
+
+  --color-error-lighter: #ffe9d5;
+  --color-error-light: #ffac82;
+  --color-error-main: #ff3b30;
+  --color-error-dark: #b71d18;
+  --color-error-darker: #7a0916;
+
+  --color-black-main: #121212;
+  --color-white-main: #ffffff;
+  --color-grey-main: #f6f7f8;
+  --color-grey-100: #f9fafb;
+  --color-grey-200: #f4f6f8;
+  --color-grey-300: #dfe3e8;
+  --color-grey-400: #c4cdd5;
+  --color-grey-500: #919eab;
+  --color-grey-600: #637381;
+  --color-grey-700: #454f5b;
+  --color-grey-800: #212b36;
 }
