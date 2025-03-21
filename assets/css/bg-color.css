@@ -1,0 +1,136 @@
+/* Background Color Primary */
+.bg-primary-lighter {
+  background: #f0faff;
+}
+.bg-primary-light {
+  background: #b9ecfe;
+}
+.bg-primary-main {
+  background: #00a2db;
+}
+.bg-primary-dark {
+  background: #066386;
+}
+.bg-primary-darker {
+  background: #07344a;
+}
+
+/* Background Color Secondary */
+.bg-secondary-lighter {
+  background: #fff9ec;
+}
+.bg-secondary-light {
+  background: #ffdfa6;
+}
+.bg-secondary-main {
+  background: #f96d01;
+}
+.bg-secondary-dark {
+  background: #a13f0b;
+}
+.bg-secondary-darker {
+  background: #461804;
+}
+
+/* Background Color Info */
+.bg-info-lighter {
+  background: #cafdf5;
+}
+.bg-info-light {
+  background: #61f3f3;
+}
+.bg-info-main {
+  background: #00b8d9;
+}
+.bg-info-dark {
+  background: #006c9c;
+}
+.bg-info-darker {
+  background: #003768;
+}
+
+/* Background Color Success */
+.bg-success-lighter {
+  background: #d3fcd2;
+}
+.bg-success-light {
+  background: #77ed8b;
+}
+.bg-success-main {
+  background: #22c55e;
+}
+.bg-success-dark {
+  background: #118d57;
+}
+.bg-success-darker {
+  background: #065e49;
+}
+
+/* Background Color Warning */
+.bg-warning-lighter {
+  background: #fff5cc;
+}
+.bg-warning-light {
+  background: #ffd666;
+}
+.bg-warning-main {
+  background: #ffab00;
+}
+.bg-warning-dark {
+  background: #b76e00;
+}
+.bg-warning-darker {
+  background: #7a4100;
+}
+
+/* Background Color Error */
+.bg-error-lighter {
+  background: #ffe9d5;
+}
+.bg-error-light {
+  background: #ffac82;
+}
+.bg-error-main {
+  background: #ff3b30;
+}
+.bg-error-dark {
+  background: #b71d18;
+}
+.bg-error-darker {
+  background: #7a0916;
+}
+
+/* Background Color Black, White and Grey */
+.bg-black-main {
+  background: #121212;
+}
+.bg-white-main {
+  background: #ffffff;
+}
+.bg-grey-main {
+  background: #f6f7f8;
+}
+.bg-grey-100 {
+  background: #f9fafb;
+}
+.bg-grey-200 {
+  background: #f4f6f8;
+}
+.bg-grey-300 {
+  background: #dfe3e8;
+}
+.bg-grey-400 {
+  background: #c4cdd5;
+}
+.bg-grey-500 {
+  background: #919eab;
+}
+.bg-grey-600 {
+  background: #637381;
+}
+.bg-grey-700 {
+  background: #454f5b;
+}
+.bg-grey-800 {
+  background: #212b36;
+}

@@ -1,1 +1,9 @@
+@import url("https://fonts.cdnfonts.com/css/kumbh-sans");
+@import url("https://fonts.cdnfonts.com/css/lato");
+@import "./bg-color.css";
+@import "./color.css";
 @import "tailwindcss";
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+}
