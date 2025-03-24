@@ -1,6 +1,8 @@
 export const components = {
     'univ': [
-        'CallToAction'
+        'CallToAction',
+        'Header',
+        'Footer'
     ],
     'faculty': [
 
