@@ -12,8 +12,15 @@ defineProps<{
     >
         <!-- Breadcrumbs and title -->
         <div>
-            <span v-for="breadcrumb in breadcrumbs">
+            <span
+                v-for="(breadcrumb, index) in breadcrumbs"
+                class="mr-1 flex flex-row items-center"
+            >
                 {{ breadcrumb }}
+                <Icon
+                    v-show="index < breadcrumbs.length"
+                    name="ic:round-keyboard-arrow-right"
+                />
             </span>
             <div>
                 {{ title }}
@@ -21,7 +28,7 @@ defineProps<{
         </div>
         <!-- IMAGE -->
         <div>
-        
+
         </div>
     </div>
 </template>
