@@ -8,10 +8,10 @@ defineProps<{
 <template>
     <div
         id="section-univ-hero-about-us"
-        class="w-screen h-full min-h-1/3 flex flex-row justify-between items-center bg-primary-light px-8 py-10"
+        class="w-screen h-full min-h-1/3 flex flex-row flex-wrap justify-between items-center bg-primary-lighter px-8 py-10"
     >
         <!-- Breadcrumbs and title -->
-        <div>
+        <div class="w-full sm:w-full md:w-full lg:w-1/2 xl:w-1/2">
             <div class="flex flex-row justify-start items-center">
                 <span
                     v-for="(breadcrumb, index) in breadcrumbs"
@@ -24,13 +24,33 @@ defineProps<{
                     />
                 </span>
             </div>
-            <div class="text-2xl font-lato font-semibold text-primary-main">
+            <div class="text-3xl font-lato font-semibold text-primary-main">
                 {{ title }}
             </div>
         </div>
         <!-- IMAGE -->
-        <div>
-
+        <div class="w-full sm:w-2/3 md:w-2/3 lg:w-[500px] xl:w-[500px]  h-[250px] relative">
+            <div class="image-mask" />
+            <img
+                src="/images/univ/about/mask-left.svg"
+                class="absolute left-0 bottom-0 w-[80px] h-[50px] ml-10"
+            />
+            <img
+                src="/images/univ/about/mask-right.svg"
+                class="absolute right-0 top-0 w-[80px] h-[50px] mr-16"
+            />
         </div>
     </div>
 </template>
+<style scoped>
+.image-mask {
+    width: 100%;
+    height: 100%;
+    mask-image: url('/images/masking-image-hero.svg');
+    background-image: url('/images/about-hero.webp');
+    object-fit: cover;
+    mask-size: 100%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+</style>
