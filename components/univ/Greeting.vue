@@ -1,10 +1,8 @@
 <script lang="ts" setup>
 defineProps<{
-  contentProps: {
-    name: string,
-    description: string,
-    image: string,
-  }
+  name: string,
+  description: string,
+  image: string,
 }>()
 </script>
 
@@ -16,15 +14,15 @@ defineProps<{
     <div class="lg:flex">
       <img
         class="lg:max-w-[371px] lg:mr-8 lg:mb-0 mb-6"
-        :src="getPublicUrl(contentProps.image, 'assets')"
+        :src="getPublicUrl(image, 'assets')"
         alt="rector"
       >
       <div>
         <label
           for="title"
           class="text-3xl font-bold font-lato"
-        >{{ contentProps.name }}</label>
-        <p class="my-4 font-kumbh-sans text-lg text-grey-600">"{{ contentProps.description }}"</p>
+        >{{ name }}</label>
+        <p class="my-4 font-kumbh-sans text-lg text-grey-600">"{{ description }}"</p>
         <button
           class="p-5 border border-primary-main leading-0 rounded-full text-primary-main hover:bg-primary-main hover:text-white cursor-pointer"
         >Lihat Semua
