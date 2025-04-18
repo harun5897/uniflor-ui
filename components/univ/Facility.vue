@@ -2,15 +2,15 @@
 defineProps<{
     items: Array<{
         name: string,
-        images: string
+        image: string
     }>
 }>();
 </script>
 <template>
-    <div class="w-full flex flex-row flex-wrap justify-between items-center">
+    <div class="w-full flex flex-row flex-wrap justify-start items-center px-4  mt-6">
         <UnivItemFacility
             v-for="item in items"
-            :images="item.images"
+            :image="item.image"
             :name="item.name"
         />
     </div>
