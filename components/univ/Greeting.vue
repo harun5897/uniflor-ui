@@ -3,6 +3,7 @@ defineProps<{
   name: string,
   description: string,
   image: string,
+  labelButton: string,
 }>()
 </script>
 
@@ -25,8 +26,7 @@ defineProps<{
         <p class="my-4 font-kumbh-sans text-lg text-grey-600">"{{ description }}"</p>
         <button
           class="p-5 border border-primary-main leading-0 rounded-full text-primary-main hover:bg-primary-main hover:text-white cursor-pointer"
-        >Lihat Semua
-          Pimpinan</button>
+        >{{ labelButton }}</button>
       </div>
     </div>
   </div>
