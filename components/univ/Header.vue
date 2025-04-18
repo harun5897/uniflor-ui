@@ -54,7 +54,7 @@ function toggleMenu() {
       <div class="flex items-center">
         <NuxtLink to="/">
           <img
-            src="~/assets/images/logo-uniflor.jpg"
+            :src="getPublicUrl('/images/logo-uniflor.webp', 'assets')"
             width="100"
             class="w-[32px] h-[30px] md:w-[49px] md:h-[47px]"
             alt="logo-uniflor"
@@ -69,13 +69,13 @@ function toggleMenu() {
       </div>
       <div class="flex items-center">
         <img
-          src="~/assets/images/logo-banpt.png"
+          :src="getPublicUrl('/images/logo-banpt.webp', 'assets')"
           width="100"
           alt="logo-banpt"
           class="mx-1.5 md:mx-2.5 w-[41px] h-[30px] md:w-[60px] md:h-[44px]"
         />
         <img
-          src="~/assets/images/logo-kampus-merdeka.png"
+          :src="getPublicUrl('/images/logo-kampus-merdeka.webp', 'assets')"
           width="100"
           alt="logo-kampus-merdeka"
           class="mx-1.5 md:mx-2.5 w-[47px] h-[25px] md:w-[68px] md:h-[36px]"

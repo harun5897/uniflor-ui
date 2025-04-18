@@ -30,13 +30,16 @@ defineProps<{
         </div>
         <!-- IMAGE -->
         <div class="w-full sm:w-2/3 md:w-2/3 lg:w-[500px] xl:w-[500px]  h-[250px] relative">
-            <div class="image-mask" />
+            <div
+                class="image-mask"
+                :style="`background-image:url('${getPublicUrl(image, 'assets')}');mask-image:url('${getPublicUrl('images/masking-image-hero.svg', 'assets')}');`"
+            />
             <img
-                src="/images/univ/about/mask-left.svg"
+                :src="getPublicUrl('/images/mask-hero-left.svg', 'assets')"
                 class="absolute left-0 bottom-0 w-[80px] h-[50px] ml-10"
             />
             <img
-                src="/images/univ/about/mask-right.svg"
+                :src="getPublicUrl('/images/mask-hero-right.svg', 'assets')"
                 class="absolute right-0 top-0 w-[80px] h-[50px] mr-16"
             />
         </div>
@@ -46,8 +49,6 @@ defineProps<{
 .image-mask {
     width: 100%;
     height: 100%;
-    mask-image: url('/images/masking-image-hero.svg');
-    background-image: url('/images/about-hero.webp');
     object-fit: cover;
     mask-size: 100%;
     mask-repeat: no-repeat;
