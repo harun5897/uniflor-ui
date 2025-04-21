@@ -7,9 +7,9 @@ const isHoveredServices = ref(false)
 const isHoveredInformation = ref(false)
 
 const itemsAboutUs = [
-  { label: 'Perjalanan Sejarah', path: '/#' },
-  { label: 'Visi & Misi', path: '/#' },
-  { label: 'Pimpinan & Managemen', path: '/#' }
+  { label: 'Perjalanan Sejarah', path: '/about#about-history' },
+  { label: 'Visi & Misi', path: '/about#vision-mission' },
+  { label: 'Pimpinan & Managemen', path: '/about#management' }
 ]
 
 const itemsAcademicPrograms = [
@@ -34,9 +34,9 @@ const itemsServices = [
 ]
 
 const itemsInformation = [
-  { label: 'Berita', path: '/#' },
-  { label: 'Kegiatan', path: '/#' },
-  { label: 'Prestasi', path: '/#' }
+  { label: 'Berita', path: '/news#latest' },
+  { label: 'Kegiatan', path: '/news#activity' },
+  { label: 'Prestasi', path: '/news#achievements' }
 ]
 
 function toggleMenu() {

@@ -43,7 +43,10 @@ function onSelectMenu(index: number, name: string) {
         </div>
         <div class="w-full sm:w-full md:w-full lg:w-[75%] xl:w-[75%] px-4 py-2">
             <!-- HISTORY -->
-            <div v-if="history != null && items[selected].name == 'history'">
+            <section
+                id="about-history"
+                v-if="history != null && items[selected].name == 'history'"
+            >
                 <p class="font-lato font-semibold text-3xl my-4">{{ items[selected].label }}</p>
                 <div>
                     <div v-for="item in history">
@@ -51,9 +54,12 @@ function onSelectMenu(index: number, name: string) {
                         <p class="font-kumbh-sans font-normal">{{ item.content }}</p>
                     </div>
                 </div>
-            </div>
+            </section>
             <!-- VISION & MISSION -->
-            <div v-if="vision != null && items[selected].name == 'vision-mission'">
+            <section
+                id="about-vision-mission"
+                v-if="vision != null && items[selected].name == 'vision-mission'"
+            >
                 <p class="font-lato font-semibold text-3xl">{{ items[selected].label }}</p>
                 <div>
                     <p class="font-semibold text-lg font-lato my-4">{{ vision.vision_label }}</p>
@@ -61,9 +67,12 @@ function onSelectMenu(index: number, name: string) {
                     <p class="font-semibold text-lg font-lato my-4">{{ vision.mission_label }}</p>
                     <div class="font-kumbh-sans">{{ vision.mission }}</div>
                 </div>
-            </div>
+            </section>
             <!-- MANAGEMENT -->
-            <div v-if="(rector != null || subfield != null) && items[selected].name == 'management'">
+            <section
+                id="about-management"
+                v-if="(rector != null || subfield != null) && items[selected].name == 'management'"
+            >
                 <p class="font-lato font-semibold text-3xl">{{ items[selected].label }}</p>
                 <p>Periode {{ items[selected].extend_value?.period ?? '' }}</p>
 
@@ -96,7 +105,7 @@ function onSelectMenu(index: number, name: string) {
 
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
 
     </div>

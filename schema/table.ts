@@ -588,6 +588,47 @@ export type Database = {
         };
         Relationships: [];
       };
+      univ_news: {
+        Row: {
+          banner: string | null;
+          content: string | null;
+          created_at: string;
+          created_by: number | null;
+          description: string | null;
+          id: number;
+          title: string | null;
+          updated_at: string | null;
+        };
+        Insert: {
+          banner?: string | null;
+          content?: string | null;
+          created_at?: string;
+          created_by?: number | null;
+          description?: string | null;
+          id?: number;
+          title?: string | null;
+          updated_at?: string | null;
+        };
+        Update: {
+          banner?: string | null;
+          content?: string | null;
+          created_at?: string;
+          created_by?: number | null;
+          description?: string | null;
+          id?: number;
+          title?: string | null;
+          updated_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "university_news_created_by_fkey";
+            columns: ["created_by"];
+            isOneToOne: false;
+            referencedRelation: "account";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       univ_rector: {
         Row: {
           administration_level: number | null;
@@ -675,47 +716,6 @@ export type Database = {
         };
         Relationships: [];
       };
-      university_news: {
-        Row: {
-          banner: string | null;
-          content: string | null;
-          created_at: string;
-          created_by: number | null;
-          description: string | null;
-          id: number;
-          title: string | null;
-          updated_at: string | null;
-        };
-        Insert: {
-          banner?: string | null;
-          content?: string | null;
-          created_at?: string;
-          created_by?: number | null;
-          description?: string | null;
-          id?: number;
-          title?: string | null;
-          updated_at?: string | null;
-        };
-        Update: {
-          banner?: string | null;
-          content?: string | null;
-          created_at?: string;
-          created_by?: number | null;
-          description?: string | null;
-          id?: number;
-          title?: string | null;
-          updated_at?: string | null;
-        };
-        Relationships: [
-          {
-            foreignKeyName: "university_news_created_by_fkey";
-            columns: ["created_by"];
-            isOneToOne: false;
-            referencedRelation: "account";
-            referencedColumns: ["id"];
-          },
-        ];
-      };
       university_news_category: {
         Row: {
           category_id: number;
@@ -790,106 +790,106 @@ type DefaultSchema = Database[Extract<keyof Database, "public">];
 
 export type Tables<
   DefaultSchemaTableNameOrOptions extends
-  | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
-  | { schema: keyof Database },
+    | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
+    | { schema: keyof Database },
   TableName extends DefaultSchemaTableNameOrOptions extends {
     schema: keyof Database;
   }
-  ? keyof (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-    Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
-  : never = never,
+    ? keyof (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+        Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
+    : never = never,
 > = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
   ? (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-    Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+      Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
       Row: infer R;
     }
-  ? R
-  : never
+    ? R
+    : never
   : DefaultSchemaTableNameOrOptions extends keyof (DefaultSchema["Tables"] &
-    DefaultSchema["Views"])
-  ? (DefaultSchema["Tables"] &
-    DefaultSchema["Views"])[DefaultSchemaTableNameOrOptions] extends {
-      Row: infer R;
-    }
-  ? R
-  : never
-  : never;
+        DefaultSchema["Views"])
+    ? (DefaultSchema["Tables"] &
+        DefaultSchema["Views"])[DefaultSchemaTableNameOrOptions] extends {
+        Row: infer R;
+      }
+      ? R
+      : never
+    : never;
 
 export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
-  | keyof DefaultSchema["Tables"]
-  | { schema: keyof Database },
+    | keyof DefaultSchema["Tables"]
+    | { schema: keyof Database },
   TableName extends DefaultSchemaTableNameOrOptions extends {
     schema: keyof Database;
   }
-  ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-  : never = never,
+    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    : never = never,
 > = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
   ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-    Insert: infer I;
-  }
-  ? I
-  : never
+      Insert: infer I;
+    }
+    ? I
+    : never
   : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
-  ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
-    Insert: infer I;
-  }
-  ? I
-  : never
-  : never;
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+        Insert: infer I;
+      }
+      ? I
+      : never
+    : never;
 
 export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
-  | keyof DefaultSchema["Tables"]
-  | { schema: keyof Database },
+    | keyof DefaultSchema["Tables"]
+    | { schema: keyof Database },
   TableName extends DefaultSchemaTableNameOrOptions extends {
     schema: keyof Database;
   }
-  ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-  : never = never,
+    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    : never = never,
 > = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
   ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-    Update: infer U;
-  }
-  ? U
-  : never
+      Update: infer U;
+    }
+    ? U
+    : never
   : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
-  ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
-    Update: infer U;
-  }
-  ? U
-  : never
-  : never;
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+        Update: infer U;
+      }
+      ? U
+      : never
+    : never;
 
 export type Enums<
   DefaultSchemaEnumNameOrOptions extends
-  | keyof DefaultSchema["Enums"]
-  | { schema: keyof Database },
+    | keyof DefaultSchema["Enums"]
+    | { schema: keyof Database },
   EnumName extends DefaultSchemaEnumNameOrOptions extends {
     schema: keyof Database;
   }
-  ? keyof Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
-  : never = never,
+    ? keyof Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
+    : never = never,
 > = DefaultSchemaEnumNameOrOptions extends { schema: keyof Database }
   ? Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
   : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
-  ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
-  : never;
+    ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
+    : never;
 
 export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
-  | keyof DefaultSchema["CompositeTypes"]
-  | { schema: keyof Database },
+    | keyof DefaultSchema["CompositeTypes"]
+    | { schema: keyof Database },
   CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
     schema: keyof Database;
   }
-  ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
-  : never = never,
+    ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    : never = never,
 > = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
   ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
   : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
-  ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
-  : never;
+    ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
+    : never;
 
 export const Constants = {
   public: {
@@ -990,6 +990,12 @@ export type InsertUnivHistory =
 export type UpdateUnivHistory =
   Database["public"]["Tables"]["univ_history"]["Update"];
 
+export type UnivNews = Database["public"]["Tables"]["univ_news"]["Row"];
+export type InsertUnivNews =
+  Database["public"]["Tables"]["univ_news"]["Insert"];
+export type UpdateUnivNews =
+  Database["public"]["Tables"]["univ_news"]["Update"];
+
 export type UnivRector = Database["public"]["Tables"]["univ_rector"]["Row"];
 export type InsertUnivRector =
   Database["public"]["Tables"]["univ_rector"]["Insert"];
@@ -1007,13 +1013,6 @@ export type InsertUnivVision =
   Database["public"]["Tables"]["univ_vision"]["Insert"];
 export type UpdateUnivVision =
   Database["public"]["Tables"]["univ_vision"]["Update"];
-
-export type UniversityNews =
-  Database["public"]["Tables"]["university_news"]["Row"];
-export type InsertUniversityNews =
-  Database["public"]["Tables"]["university_news"]["Insert"];
-export type UpdateUniversityNews =
-  Database["public"]["Tables"]["university_news"]["Update"];
 
 export type UniversityNewsCategory =
   Database["public"]["Tables"]["university_news_category"]["Row"];
