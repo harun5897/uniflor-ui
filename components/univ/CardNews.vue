@@ -7,7 +7,7 @@ defineProps<{
 }>()
 </script>
 <template>
-  <div class="w-full h-full bg-white rounded-lg shadow-md">
+  <div class="w-full h-full bg-white rounded-lg">
     <img
       :src="getPublicUrl(banner, 'assets')"
       class="h-[200px] md:h-[230px] lg:h-[200px] xl:h-[250px] w-full object-cover rounded-t-lg"
