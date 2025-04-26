@@ -14,12 +14,12 @@ defineProps<{
   >
     <div class="md:flex justify-between mb-8">
       <div>
-        <h1 class="text-3xl font-bold font-lato">Prestasi</h1>
-        <h6 class="text-base font-kumbh-sans text-gray-600 font-normal my-3">Up-to-date Dengan Informasi Kami</h6>
+        <h1 class="text-3xl font-bold font-lato">{{ title }}</h1>
+        <h6 class="text-base font-kumbh-sans text-gray-600 font-normal my-3">{{ tag }}</h6>
       </div>
       <div>
         <button class="p-5 md:my-0 my-3 border bg-primary-main leading-0 rounded-full text-white cursor-pointer">
-          Lihat Semua
+          {{ labelButton }}
         </button>
       </div>
     </div>
