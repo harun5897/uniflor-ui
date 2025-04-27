@@ -30,7 +30,7 @@ defineProps<{
         class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8"
       >
         <UnivCardNews
-          :category="(item as any).univ_news_category?.[0]?.news_category?.name || 'N/A'"
+          :categories="(item as any).univ_news_category"
           :banner="(item as any).banner"
           :title="item.title"
           :date="item.created_at"

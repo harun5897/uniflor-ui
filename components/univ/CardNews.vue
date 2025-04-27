@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  category: string
+  categories: string
   banner: string
   title: string | null
   date: string
@@ -15,7 +15,10 @@ defineProps<{
     />
     <div class="py-6 px-4">
       <div class="inline-block border border-grey-300 rounded-full py-1.5 px-3 mb-2">
-        <h6 class="text-xs text-grey-800 font-kumbh-sans font-medium"> {{ category }}</h6>
+        <h6
+          v-for="category in categories"
+          class="text-xs text-grey-800 font-kumbh-sans font-medium"
+        > {{ (category as any).news_category.name }}</h6>
       </div>
       <h3 class="text-xl font-lato font-bold mt-2 text-ellipsis overflow-hidden line-clamp-2">
         {{ title }}

@@ -596,6 +596,7 @@ export type Database = {
           created_by: number | null;
           description: string | null;
           id: number;
+          slug: string | null;
           title: string | null;
           updated_at: string | null;
         };
@@ -606,6 +607,7 @@ export type Database = {
           created_by?: number | null;
           description?: string | null;
           id?: number;
+          slug?: string | null;
           title?: string | null;
           updated_at?: string | null;
         };
@@ -616,6 +618,7 @@ export type Database = {
           created_by?: number | null;
           description?: string | null;
           id?: number;
+          slug?: string | null;
           title?: string | null;
           updated_at?: string | null;
         };
@@ -623,6 +626,39 @@ export type Database = {
           {
             foreignKeyName: "university_news_created_by_fkey";
             columns: ["created_by"];
+            isOneToOne: false;
+            referencedRelation: "account";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      univ_news_category: {
+        Row: {
+          category_id: number;
+          created_at: string;
+          university_id: number;
+        };
+        Insert: {
+          category_id?: number;
+          created_at?: string;
+          university_id: number;
+        };
+        Update: {
+          category_id?: number;
+          created_at?: string;
+          university_id?: number;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "university_news_category_category_id_fkey";
+            columns: ["category_id"];
+            isOneToOne: false;
+            referencedRelation: "news_category";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "university_news_category_university_id_fkey";
+            columns: ["university_id"];
             isOneToOne: false;
             referencedRelation: "account";
             referencedColumns: ["id"];
@@ -715,39 +751,6 @@ export type Database = {
           vision_label?: string | null;
         };
         Relationships: [];
-      };
-      university_news_category: {
-        Row: {
-          category_id: number;
-          created_at: string;
-          university_id: number;
-        };
-        Insert: {
-          category_id?: number;
-          created_at?: string;
-          university_id: number;
-        };
-        Update: {
-          category_id?: number;
-          created_at?: string;
-          university_id?: number;
-        };
-        Relationships: [
-          {
-            foreignKeyName: "university_news_category_category_id_fkey";
-            columns: ["category_id"];
-            isOneToOne: false;
-            referencedRelation: "news_category";
-            referencedColumns: ["id"];
-          },
-          {
-            foreignKeyName: "university_news_category_university_id_fkey";
-            columns: ["university_id"];
-            isOneToOne: false;
-            referencedRelation: "account";
-            referencedColumns: ["id"];
-          },
-        ];
       };
       university_parners: {
         Row: {
@@ -996,6 +999,13 @@ export type InsertUnivNews =
 export type UpdateUnivNews =
   Database["public"]["Tables"]["univ_news"]["Update"];
 
+export type UnivNewsCategory =
+  Database["public"]["Tables"]["univ_news_category"]["Row"];
+export type InsertUnivNewsCategory =
+  Database["public"]["Tables"]["univ_news_category"]["Insert"];
+export type UpdateUnivNewsCategory =
+  Database["public"]["Tables"]["univ_news_category"]["Update"];
+
 export type UnivRector = Database["public"]["Tables"]["univ_rector"]["Row"];
 export type InsertUnivRector =
   Database["public"]["Tables"]["univ_rector"]["Insert"];
@@ -1013,13 +1023,6 @@ export type InsertUnivVision =
   Database["public"]["Tables"]["univ_vision"]["Insert"];
 export type UpdateUnivVision =
   Database["public"]["Tables"]["univ_vision"]["Update"];
-
-export type UniversityNewsCategory =
-  Database["public"]["Tables"]["university_news_category"]["Row"];
-export type InsertUniversityNewsCategory =
-  Database["public"]["Tables"]["university_news_category"]["Insert"];
-export type UpdateUniversityNewsCategory =
-  Database["public"]["Tables"]["university_news_category"]["Update"];
 
 export type UniversityParners =
   Database["public"]["Tables"]["university_parners"]["Row"];

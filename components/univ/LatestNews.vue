@@ -9,28 +9,14 @@ const screenHeight = ref(200)
 const currentIndex = ref<number>(0);
 const slideMainWidth = computed(() => {
     if (screenWidth.value > 1200) {
-        return screenWidth.value - (screenWidth.value / 3)
+        return screenWidth.value - 50
     }
-    return screenWidth.value - (screenWidth.value / 5)
+    return screenWidth.value - 50
 });
 
-const slideMainHeight = computed(() => {
-    if (screenWidth.value > 1200) {
-        return screenHeight.value - (screenHeight.value / 3)
-    }
-    if (screenWidth.value > 800) {
-        return screenHeight.value - (screenHeight.value / 3)
-    }
-    if (screenWidth.value > 580) {
-        return screenHeight.value - (screenHeight.value / 2 + 10)
-    }
-    return screenHeight.value - ((screenHeight.value / 3) * 2)
-}
-);
 
-const gap: number = 16;
 const transformStyle = computed<string>(() => {
-    return `translateX(-${slideMainWidth.value * currentIndex.value}px)`;
+    return `translateX(-${screenWidth.value * currentIndex.value}px)`;
 });
 
 function prevSlide() {
@@ -58,35 +44,43 @@ onMounted(() => {
     <client-only>
         <section
             id="latest"
-            class="relative w-full h-full overflow-hidden"
+            class="relative w-full h-full overflow-hidden px-6 py-4"
         >
             <!-- TITLE -->
-            <div>
+            <div class="font-lato font-semibold text-2xl">
                 {{ title }}
             </div>
             <!-- CARAOUSEL -->
             <div
                 class="flex transition-transform duration-500"
-                :style="{ transform: transformStyle, gap: `${gap}px` }"
+                :style="{ transform: transformStyle, gap: '50px' }"
             >
-                <ItemCaraouselLatestNews
+                <UnivItemCaraouselLatestNews
                     v-for="(slide, index) in items"
                     :key="index"
                     :index="index"
+                    :current-index="currentIndex"
                     :event="slide"
                     :slide-width="slideMainWidth"
-                    :slide-height="slideMainHeight"
-                ></ItemCaraouselLatestNews>
+                    :categories="(slide as any).univ_news_category"
+                    :date="slide.created_at"
+                    :title="slide.title ?? ''"
+                    :description="slide.description ?? ''"
+                    :slug="slide.slug ?? '404'"
+                ></UnivItemCaraouselLatestNews>
             </div>
             <!-- DOTS -->
-            <div>
+            <div class="w-full flex flex-row justify-center gap-1 items-center my-2">
                 <span
                     v-for="(item, index) in items"
                     @click="() => {
                         currentIndex = index
                     }"
                     class="w-[10px] h-[10px]  rounded-full"
-                    :class="{ 'bg-primary-main': index == currentIndex }"
+                    :class="{
+                        'bg-primary-main': index == currentIndex,
+                        'bg-gray-300': index != currentIndex
+                    }"
                 >
                 </span>
             </div>
