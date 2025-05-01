@@ -14,7 +14,7 @@ defineProps<{
   >
     <div class="lg:flex">
       <img
-        class="lg:max-w-[371px] lg:mr-8 lg:mb-0 mb-6"
+        class="lg:max-w-[371px] lg:mr-8 lg:mb-0 mb-6 transition-transform duration-300 hover:scale-105"
         :src="getPublicUrl(image, 'assets')"
         alt="rector"
       >
