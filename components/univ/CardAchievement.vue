@@ -6,7 +6,7 @@ defineProps<{
 }>()
 </script>
 <template>
-  <div class="w-full h-full bg-white rounded-lg shadow">
+  <div class="w-full h-full bg-white rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
     <NuxtLink to="/">
       <img
         :src="getPublicUrl(image, 'assets')"
