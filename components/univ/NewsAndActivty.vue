@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { formatDate } from '~/uniflor-ui/shared/date-utils';
 
 const props = defineProps<{
     title: string,
